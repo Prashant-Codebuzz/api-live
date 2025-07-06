@@ -51,30 +51,32 @@ app.use("/admin", adminRoute);
 app.use("/web", webRoute);
 app.use("/web/api/documentation", webConfig);
 app.use("/admin/api/documentation", adminConfig);
-  
+
 // Error handling
 app.use("*", routeNotFoundHandler);
 app.use(errorHandler);
 
 // Server setup
-let server;
-if (process.env.IS_SSL_ENABLE === "true") {
-  const options = {
-    key: fs.readFileSync(
-      path.resolve(`${process.env.SSL_CERT_BASE_PATH}/privkey.pem`)
-    ),
-    cert: fs.readFileSync(
-      path.resolve(`${process.env.SSL_CERT_BASE_PATH}/fullchain.pem`)
-    ),
-  };
-  server = httpsCreateServer(options, app);
-} else {
-  server = httpCreateServer(app);
-}
+// let server;
+// if (process.env.IS_SSL_ENABLE === "true") {
+//   const options = {
+//     key: fs.readFileSync(
+//       path.resolve(`${process.env.SSL_CERT_BASE_PATH}/privkey.pem`)
+//     ),
+//     cert: fs.readFileSync(
+//       path.resolve(`${process.env.SSL_CERT_BASE_PATH}/fullchain.pem`)
+//     ),
+//   };
+//   server = httpsCreateServer(options, app);
+// } else {
+//   server = httpCreateServer(app);
+// }
 
-// Start server
-server.listen(process.env.PORT, () => {
-  console.log(`Listening on (HTTP/HTTPS) ${process.env.APP_URL_fOR_OTHER,`/`,process.env.PORT}`);
-});
+// // Start server
+// if (process.env.IS_VERCEL !== "true") {
+//   server.listen(process.env.PORT, () => {
+//     console.log(`Listening on (HTTP/HTTPS) ${process.env.APP_URL_fOR_OTHER, `/`, process.env.PORT}`);
+//   });
+// }
 
-export default app;
+export default app; 
