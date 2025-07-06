@@ -9,7 +9,12 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "src/app.js"
+            "dest": "api/index.js"
         }
-    ]
+    ],
+    "build": {
+        "env": {
+            "NODE_VERSION": "18"
+        }
+    }
 }

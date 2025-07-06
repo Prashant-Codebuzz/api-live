@@ -11,6 +11,9 @@
     "build:src": "babel src -d dist",
     "start": "node dist/app.js"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
